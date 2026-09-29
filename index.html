@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080a10">
+<title>BlockBuy — Minecraft Marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#"><i>B</i><b>Block<span>Buy</span></b></a>
+<nav><a href="#market">Marketplace</a><a href="#categories">Categories</a><a href="#sellers">Sellers</a></nav>
+<div class="actions"><button id="theme">☼</button><button id="fav">♡ <small>0</small></button><button id="account">◉ Account</button></div>
+</header>
+
+<main>
+<section class="hero">
+<div>
+<div class="eyebrow">● THE MINECRAFT MARKETPLACE</div>
+<h1>Buy. Sell.<br><em>Build.</em></h1>
+<p>Discover ranks, cosmetics, skins, builds and server goods from Minecraft creators and communities.</p>
+<div class="hero-search"><span>⌕</span><input id="heroSearch" placeholder="Search ranks, skins, builds, server goods…"><kbd>Ctrl K</kbd></div>
+<div class="hero-buttons"><a class="primary" href="#market">Explore marketplace →</a><a class="secondary" href="#sell">Start selling</a></div>
+<div class="trust">✓ Java + Bedrock &nbsp; ✓ Curated listings &nbsp; ✓ Creator profiles</div>
+</div>
+<div class="feature-card">
+<div class="feature-label">FEATURED DROP <span>● LIVE</span></div>
+<div class="art"><div class="sun"></div><div class="mountain one"></div><div class="mountain two"></div><div class="ground"></div><div class="cube c1"></div><div class="cube c2"></div></div>
+<div class="feature-info"><div><small>Featured today</small><h3>Celestial Dragon Set</h3><p>PixelForge · ★ 4.9</p></div><strong>₹249</strong></div>
+</div>
+</section>
+
+<section class="stats"><div><b>12.8K+</b><span>community listings</span></div><div><b>3.4K+</b><span>active creators</span></div><div><b>98%</b><span>positive reviews</span></div><div><b>2 editions</b><span>Java + Bedrock</span></div></section>
+
+<section id="categories" class="section">
+<div class="heading"><div><label>DISCOVER</label><h2>Shop by category</h2></div><a href="#market">View all →</a></div>
+<div class="categories">
+<button data-cat="Ranks"><strong>♛</strong><b>Ranks</b><small>Ranks & perks</small></button>
+<button data-cat="Cosmetics"><strong>✦</strong><b>Cosmetics</b><small>Trails & effects</small></button>
+<button data-cat="Skins"><strong>◈</strong><b>Skins</b><small>Player skin packs</small></button>
+<button data-cat="Builds"><strong>⌂</strong><b>Builds</b><small>Maps & structures</small></button>
+<button data-cat="Server Goods"><strong>⬢</strong><b>Server Goods</b><small>Credits & kits</small></button>
+<button data-cat="Bundles"><strong>✚</strong><b>Bundles</b><small>Curated collections</small></button>
+</div>
+</section>
+
+<section id="market" class="section">
+<div class="heading"><div><label>MARKETPLACE</label><h2>Trending right now</h2></div></div>
+<div class="toolbar"><div class="search"><span>⌕</span><input id="search" placeholder="Search marketplace…"></div>
+<select id="edition"><option value="all">All editions</option><option>Java</option><option>Bedrock</option></select>
+<select id="category"><option value="all">All categories</option><option>Ranks</option><option>Cosmetics</option><option>Skins</option><option>Builds</option><option>Server Goods</option><option>Bundles</option></select>
+<select id="sort"><option value="popular">Most popular</option><option value="newest">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+<div class="chips"><button class="active" data-chip="all">All</button><button data-chip="Java">Java</button><button data-chip="Bedrock">Bedrock</button><button data-chip="low">Under ₹199</button><button data-chip="new">New</button></div>
+<div id="meta"></div><div id="catalog"></div>
+</section>
+
+<section id="sellers" class="section">
+<div class="heading"><div><label>COMMUNITY</label><h2>Creators worth discovering</h2></div><a href="#sell">Become a seller →</a></div>
+<div class="sellers">
+<article><i>PF</i><div><b>PixelForge</b><small>Builds & cosmetics<br>★ 4.9 · 1.2K sales</small></div><button>View shop</button></article>
+<article><i class="green">NC</i><div><b>NovaCraft</b><small>Server goods<br>★ 4.8 · 860 sales</small></div><button>View shop</button></article>
+<article><i class="orange">VB</i><div><b>VoidBuilds</b><small>Maps & structures<br>★ 5.0 · 430 sales</small></div><button>View shop</button></article>
+</div>
+</section>
+
+<section id="sell" class="cta"><div><label>FOR CREATORS</label><h2>Turn your Minecraft work into a storefront.</h2><p>Build a catalog, present your work and grow a creator reputation.</p></div><button class="primary" id="sellBtn">Open Seller Studio →</button></section>
+</main>
+
+<footer><a class="brand" href="#"><i>B</i><b>Block<span>Buy</span></b></a><span>Built for Minecraft creators and communities · © 2026</span></footer>
+
+<div class="modal" id="productModal"><div class="dialog"><button class="close">×</button><div id="detail"></div></div></div>
+<div class="modal" id="studioModal"><div class="dialog studio"><button class="close">×</button><label>SELLER STUDIO</label><h2>Create a listing</h2><p>Prototype mode — listings are stored locally.</p>
+<form id="form"><input name="title" required placeholder="Listing title"><div class="two"><input name="price" type="number" min="1" required placeholder="Price (₹)"><select name="category"><option>Cosmetics</option><option>Skins</option><option>Ranks</option><option>Builds</option><option>Server Goods</option><option>Bundles</option></select></div><select name="edition"><option>Java</option><option>Bedrock</option><option>Java + Bedrock</option></select><input name="seller" required placeholder="Seller / shop name"><textarea name="description" required placeholder="Describe what buyers receive…"></textarea><button class="primary">Publish listing</button></form></div></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
